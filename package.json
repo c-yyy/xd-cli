@@ -12,19 +12,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/c-yyy/xd_list.git"
+    "url": "git+https://github.com/c-yyy/xd_cli.git"
   },
   "keywords": [
-    "xd"
+    "xd-cli"
   ],
   "author": "inpm",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/c-yyy/xd_list/issues"
+    "url": "https://github.com/c-yyy/xd_cli/issues"
   },
-  "homepage": "https://github.com/c-yyy/xd_list#readme",
+  "homepage": "https://github.com/c-yyy/xd_cli#readme",
   "dependencies": {
-    "commander": "^2.19.0",
-    "express": "^4.16.4"
+    "commander": "^2.19.0"
   }
 }

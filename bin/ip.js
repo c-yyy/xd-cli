@@ -1,6 +1,6 @@
 #!/usr/bin/env node
+
 const os = require('os')
-///////////////////获取本机ip///////////////////////
 function getIPAdress() {
     const interfaces = os.networkInterfaces()
     for (const devName in interfaces) {
