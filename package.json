@@ -1,8 +1,12 @@
 {
-  "name": "xd-list",
+  "name": "xd-cli",
   "version": "1.0.0",
   "description": "xd公用package",
-  "main": "index.js",
+  "main": "main.js",
+  "bin": {
+    "ip": "./bin/ip.js",
+    "server": "./bin/server.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/c-yyy/xd_list/issues"
   },
-  "homepage": "https://github.com/c-yyy/xd_list#readme"
+  "homepage": "https://github.com/c-yyy/xd_list#readme",
+  "dependencies": {
+    "commander": "^2.19.0",
+    "express": "^4.16.4"
+  }
 }
