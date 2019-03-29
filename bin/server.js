@@ -19,7 +19,7 @@ const myHost = getIPAdress()
 
 http.createServer((req, res) => {
   res.writeHead(200, {'Content-Type': 'text/plain'})
-  res.end('123')
+  res.end()
 }).listen(7777)
 
 opn(`http://${myHost}:7777`)
