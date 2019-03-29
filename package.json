@@ -1,6 +1,6 @@
 {
   "name": "xd-cli",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "xd公用package",
   "main": "main.js",
   "bin": {
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/c-yyy/xd_cli#readme",
   "dependencies": {
-    "commander": "^2.19.0"
+    "commander": "^2.19.0",
+    "opn": "^6.0.0"
   }
 }
