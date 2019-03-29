@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 
 const http = require('http')
+const fs = require('fs')
 const opn = require('opn')
 const os = require('os')
+
 function getIPAdress() {
     const interfaces = os.networkInterfaces()
     for (const devName in interfaces) {
@@ -16,10 +18,26 @@ function getIPAdress() {
     }
 }
 const myHost = getIPAdress()
+const rootPath = process.cwd()
 
 http.createServer((req, res) => {
-  res.writeHead(200, {'Content-Type': 'text/plain'})
-  res.end()
+    const url = req.url
+    const file = rootPath + url
+    fs.readFile(file, (err, data) => {
+        if (err) {
+            res.writeHead(404, {
+                'Content-Type': 'text/html;charset="utf-8'
+            })
+            res.write('<h1>404错误</h1><p>访问页面不存在</p>')
+            res.end()
+        } else {
+            res.writeHead(200, {
+                'Content-Type': 'text/html;charset="utf-8'
+            })
+            res.write(data)
+            res.end()
+        }
+    })
 }).listen(7777)
 
 opn(`http://${myHost}:7777`)
