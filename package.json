@@ -1,0 +1,22 @@
+{
+  "name": "xd-list",
+  "version": "1.0.0",
+  "description": "xd公用package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c-yyy/xd_list.git"
+  },
+  "keywords": [
+    "xd"
+  ],
+  "author": "inpm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/c-yyy/xd_list/issues"
+  },
+  "homepage": "https://github.com/c-yyy/xd_list#readme"
+}
