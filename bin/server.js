@@ -22,7 +22,8 @@ const rootPath = process.cwd()
 
 http.createServer((req, res) => {
     const url = req.url
-    const file = rootPath + url
+    const file = url === '/' ? rootPath + '/index.html' : rootPath + url
+
     fs.readFile(file, (err, data) => {
         if (err) {
             res.writeHead(404, {
@@ -34,7 +35,7 @@ http.createServer((req, res) => {
             res.writeHead(200, {
                 'Content-Type': 'text/html;charset="utf-8'
             })
-            res.write(data)
+            res.write(data.toString())
             res.end()
         }
     })

@@ -1,6 +1,6 @@
 {
   "name": "xd-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "xd公用package",
   "main": "main.js",
   "bin": {
