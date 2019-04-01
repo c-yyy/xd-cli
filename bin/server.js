@@ -4,6 +4,17 @@ const http = require('http')
 const fs = require('fs')
 const opn = require('opn')
 const os = require('os')
+const colors = require('colors')
+
+colors.setTheme({
+    silly: 'rainbow',
+    input: 'grey',
+    info: 'cyan',
+    success: 'green',
+    warn: 'yellow',
+    error: 'red',
+    debug: 'blue'
+})
 
 function getIPAdress() {
     const interfaces = os.networkInterfaces()
@@ -29,7 +40,7 @@ http.createServer((req, res) => {
             res.writeHead(404, {
                 'Content-Type': 'text/html;charset="utf-8'
             })
-            res.write('<h1>404错误</h1><p>访问页面不存在</p>')
+            res.write('<h1>404</h1><p>访问页面不存在</p>')
             res.end()
         } else {
             res.writeHead(200, {
@@ -42,4 +53,4 @@ http.createServer((req, res) => {
 }).listen(7777)
 
 opn(`http://${myHost}:7777`)
-console.log(`Server running at http://${myHost}:7777`)
+console.log(`Server running at http://${myHost}:7777`.grey)

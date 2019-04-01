@@ -1,7 +1,7 @@
 # XD公用package
 ## 预想实现功能
-- 拿本地ip`ip`☑️
-- 起服务`server`☑️
+- 拿本地IPv4`ip`☑️
+- 静态起服务`server`☑️
 - 压缩图片资源`rar`
 - 快速生成项目模版`xd ls`
 
