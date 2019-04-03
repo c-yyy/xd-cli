@@ -1,4 +1,4 @@
-# XD公用package
+# xd-cli
 ## 预想实现功能
 - 拿本地IPv4`ip`☑️
 - 静态起服务`server`☑️
