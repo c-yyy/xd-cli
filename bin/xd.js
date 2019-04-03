@@ -15,6 +15,10 @@ colors.setTheme({
 
 program
   .version(require('../package.json').version)
+  .option('-v, --version')
+  .action('-ls, --list', (dir, cmd) => {
+    console.log('remove')
+  })
   .parse(process.argv)
 
 if(program.args.length === 0) {
