@@ -3,15 +3,15 @@
 - 拿本地IPv4`ip`☑️
 - 静态起服务`server`☑️
 - 压缩图片资源`rar`
-- 快速生成项目模版`xd ls`
+- 快速生成项目模版`xd ls`☑️
 
 ## 项目模版是主要功能点
 - 移动端h5-vue
 - 移动端h5-react
 - 管理中后台admin-vue
-- 管理中后台admin-angular7
+- 管理中后台admin-angular6☑️
 - 官网pc-vue
-- 小程序-wepy
+- 小程序-wepy☑️
 - 小程序-taro
 
 ## 公用UI组件库
