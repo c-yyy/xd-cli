@@ -2,7 +2,7 @@
 
 const http = require('http')
 const fs = require('fs')
-const opn = require('opn')
+const open = require('open')
 const os = require('os')
 const chalk = require('chalk')
 
@@ -42,5 +42,5 @@ http.createServer((req, res) => {
     })
 }).listen(7777)
 
-opn(`http://${myHost}:7777`)
+open(`http://${myHost}:7777`)
 console.log(chalk.grey(`Server running at http://${myHost}:7777`))
