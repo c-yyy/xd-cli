@@ -1,16 +1,6 @@
 #!/usr/bin/env node
 const os = require('os')
-const colors = require('colors')
-
-colors.setTheme({
-    silly: 'rainbow',
-    input: 'grey',
-    info: 'cyan',
-    success: 'green',
-    warn: 'yellow',
-    error: 'red',
-    debug: 'blue'
-})
+const chalk = require('chalk')
 
 function getIPAdress() {
     const interfaces = os.networkInterfaces()
@@ -26,4 +16,4 @@ function getIPAdress() {
 }
 const myHost = getIPAdress()
 
-console.log(`--IPv4--:${myHost}`.info)
+console.log(chalk.green(`--IPv4--:${myHost}`))

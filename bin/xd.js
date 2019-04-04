@@ -1,26 +1,22 @@
 #!/usr/bin/env node
 
 const program = require('commander')
-const colors = require('colors')
-
-colors.setTheme({
-    silly: 'rainbow',
-    input: 'grey',
-    info: 'cyan',
-    success: 'green',
-    warn: 'yellow',
-    error: 'red',
-    debug: 'blue'
-})
+const package = require('../package.json')
+const list = require('./list')
 
 program
-  .version(require('../package.json').version)
-  .option('-v, --version')
-  .action('-ls, --list', (dir, cmd) => {
-    console.log('remove')
+  .version(package.version)
+  .usage('<command> [option]')
+
+program.command('list')
+  .description('请选择项目模版')
+  .alias('ls')
+  .action(() => {
+    list()
   })
-  .parse(process.argv)
+
+program.parse(process.argv)
 
 if(program.args.length === 0) {
-  program.help()
+  program.help() // 不带参数，help
 }

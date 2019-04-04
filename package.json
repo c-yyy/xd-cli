@@ -1,12 +1,12 @@
 {
   "name": "xd-cli",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "xd公用package",
-  "main": "index.js",
+  "main": "index",
   "bin": {
-    "ip": "./bin/ip.js",
-    "server": "./bin/server.js",
-    "xd": "./bin/xd.js"
+    "ip": "./bin/ip",
+    "server": "./bin/server",
+    "xd": "./bin/xd"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -25,8 +25,12 @@
   },
   "homepage": "https://github.com/c-yyy/xd_cli#readme",
   "dependencies": {
-    "colors": "^1.3.3",
     "commander": "^2.19.0",
     "opn": "^6.0.0"
+  },
+  "devDependencies": {
+    "chalk": "^2.4.2",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0"
   }
 }

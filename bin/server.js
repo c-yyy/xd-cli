@@ -4,17 +4,7 @@ const http = require('http')
 const fs = require('fs')
 const opn = require('opn')
 const os = require('os')
-const colors = require('colors')
-
-colors.setTheme({
-    silly: 'rainbow',
-    input: 'grey',
-    info: 'cyan',
-    success: 'green',
-    warn: 'yellow',
-    error: 'red',
-    debug: 'blue'
-})
+const chalk = require('chalk')
 
 function getIPAdress() {
     const interfaces = os.networkInterfaces()
@@ -53,4 +43,4 @@ http.createServer((req, res) => {
 }).listen(7777)
 
 opn(`http://${myHost}:7777`)
-console.log(`Server running at http://${myHost}:7777`.grey)
+console.log(chalk.grey(`Server running at http://${myHost}:7777`))
