@@ -1,13 +1,15 @@
+
 const path = require('path')
 const fs = require('fs')
 const ora = require('ora')
 const chalk = require('chalk')
 const tinify = require('tinify')
+const rootPath = process.cwd()
 const loading = ora({
   text: 'loading',
   color: 'yellow'
 })
-tinify.key = ''
+tinify.key = 'adsghffdgsa45w3rdzfd'
 
 function isDirectory(filePath, cb) {
   try {
@@ -78,3 +80,4 @@ async function tinifyImgs(img) {
   }
 }
 
+findImg(rootPath)
