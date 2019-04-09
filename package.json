@@ -1,11 +1,12 @@
 {
   "name": "xd-cli",
-  "version": "1.1.7",
+  "version": "1.2.0",
   "description": "xd-cli",
   "main": "index.js",
   "bin": {
     "ip": "./bin/ip.js",
     "server": "./bin/server.js",
+    "tinify": "./bin/tinify.js",
     "rar": "./bin/rar.js",
     "xd": "index.js"
   },
@@ -35,6 +36,7 @@
     "inquirer": "^6.2.2",
     "open": "^6.0.0",
     "ora": "^3.4.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "tinify": "^1.6.0-beta.2"
   }
 }
