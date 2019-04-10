@@ -20,6 +20,12 @@ function getIPAdress() {
 }
 const myHost = getIPAdress()
 const rootPath = process.cwd()
+const argv = process.argv.splice(2)[0]
+const reg = /^\d{4}$/
+if(!reg.test(argv)) {
+    console.log(chalk.red('请输入四位数字'))
+    return
+}
 
 http.createServer((req, res) => {
     const url = req.url
@@ -42,5 +48,5 @@ http.createServer((req, res) => {
     })
 }).listen(7777)
 
-open(`http://${myHost}:7777`)
-console.log(chalk.grey(`Server running at http://${myHost}:7777`))
+open(`http://${myHost}:${argv?argv:7777}`)
+console.log(chalk.grey(`Server running at http://${myHost}:${argv?argv:7777}`))
