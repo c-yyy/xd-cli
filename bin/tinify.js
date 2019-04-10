@@ -25,30 +25,34 @@ async function rarImages(rootPath) {
     const files = await readDir(rootPath).then(res => { return res })
     files.map(async file => {
       try {
-        loading.start()
-        const fullPath = await path.join(rootPath, file)
-        const isDir = await isDirectory(fullPath).then(res => { return res })
-        if (isDir) {
-          rarImages(fullPath)
-        } else {
-          // 读源文件并写入到另一个文件中
-          const source = tinify.fromFile(fullPath)
-          source.toFile(fullPath)
-          loading.stop()
-          console.log(chalk.grey(fullPath)+chalk.green('🚀 Success!'))
-  
-          // 从缓冲区(buffer二进制字符串)上传图片并获取压缩后图片数据
-          // fs.readFile(fullPath, (err, sourceData) => {
-          //   if(err) console(chalk.red(err))
-          //   tinify.fromBuffer(sourceData).toBuffer((err, resultData) => {
-          //     if(err) console.log(err, fullPath)
-          //     fs.writeFile(fullPath, resultData, (err) => {
-          //       if(err) console.log(chalk.red(err))
-          //       loading.stop()
-          //       console.log(chalk.grey(fullPath)+chalk.green('🚀 Success!'))
-          //     })
-          //   })
-          // })
+        // .DS_Store/desktop.ini,mac/win自带描述图片其他信息的东西
+        if(file !== '.DS_Store' && file !== 'desktop.ini') {
+          loading.start()
+          const fullPath = await path.join(rootPath, file)
+          const isDir = await isDirectory(fullPath).then(res => { return res })
+          if (isDir) {
+            //文件夹嵌套则递归调用
+            rarImages(fullPath)
+          } else {
+            // 读源文件并写入到另一个文件中
+            const source = tinify.fromFile(fullPath)
+            source.toFile(fullPath)
+            loading.stop()
+            console.log(chalk.grey(fullPath)+chalk.green('🚀 Success!'))
+    
+            // 从缓冲区(buffer二进制字符串)上传图片并获取压缩后图片数据
+            // fs.readFile(fullPath, (err, sourceData) => {
+            //   if(err) console(chalk.red(err))
+            //   tinify.fromBuffer(sourceData).toBuffer((err, resultData) => {
+            //     if(err) console.log(err, fullPath)
+            //     fs.writeFile(fullPath, resultData, (err) => {
+            //       if(err) console.log(chalk.red(err))
+            //       loading.stop()
+            //       console.log(chalk.grey(fullPath)+chalk.green('🚀 Success!'))
+            //     })
+            //   })
+            // })
+          }
         }
       } catch (err) {
         return console.log(chalk.red(err, files))
