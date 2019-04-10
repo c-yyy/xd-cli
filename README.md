@@ -1,4 +1,6 @@
 # xd-cli
+[![NPM version](https://img.shields.io/npm/v/xd-cli.svg)](https://www.npmjs.com/package/xd-cli)
+[![npm download](https://img.shields.io/npm/dw/xd-cli.svg)](https://www.npmjs.com/package/xd-cli)
 ## 预想实现功能
 - 拿本地IPv4`ip`☑️
 - 静态起服务`server`(支持自定义端口号server 1234，默认7777)☑️
