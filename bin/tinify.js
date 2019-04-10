@@ -11,42 +11,57 @@ const loading = ora({
   text: 'loading',
   color: 'yellow'
 })
-
-rarImages(rootPath)
+const argv = process.argv.splice(2)[0]
+rarImages(argv?argv:rootPath)
 
 async function rarImages(rootPath) {
-  const files = await readDir(rootPath).then(res=>{return res})
-  files.map(async file => {
-    try {
-      loading.start()
-      const fullPath = await path.join(rootPath, file)
-      const isDir = await isDirectory(fullPath).then(res=>{return res})
-      if(isDir) {
-        rarImages(fullPath)
-      } else {
-        fs.readFile(fullPath, (err, sourceData) => {
-          if(err) console.log(chalk.red(err))
-          tinify.fromBuffer(sourceData).toBuffer((err, resultData) => {
-            if(err) console.log(chalk.red(err))
-            fs.writeFile(fullPath, resultData, (err) => {
-              if(err) console.log(chalk.red(err))
-              loading.stop()
-              console.log(chalk.grey(fullPath)+chalk.green('🚀 Success!'))
-            })
-          })
-        })
+  if(argv) {
+    // 读源文件并写入到另一个文件中
+    const source = tinify.fromUrl(argv)
+    source.toFile(argv.slice(-10))
+    loading.stop()
+    console.log(chalk.green('🚀 Success!'))
+  } else {
+    const files = await readDir(rootPath).then(res => { return res })
+    files.map(async file => {
+      try {
+        loading.start()
+        const fullPath = await path.join(rootPath, file)
+        const isDir = await isDirectory(fullPath).then(res => { return res })
+        if (isDir) {
+          rarImages(fullPath)
+        } else {
+          // 读源文件并写入到另一个文件中
+          const source = tinify.fromFile(fullPath)
+          source.toFile(fullPath)
+          loading.stop()
+          console.log(chalk.grey(fullPath)+chalk.green('🚀 Success!'))
+  
+          // 从缓冲区(buffer二进制字符串)上传图片并获取压缩后图片数据
+          // fs.readFile(fullPath, (err, sourceData) => {
+          //   if(err) console(chalk.red(err))
+          //   tinify.fromBuffer(sourceData).toBuffer((err, resultData) => {
+          //     if(err) console.log(err, fullPath)
+          //     fs.writeFile(fullPath, resultData, (err) => {
+          //       if(err) console.log(chalk.red(err))
+          //       loading.stop()
+          //       console.log(chalk.grey(fullPath)+chalk.green('🚀 Success!'))
+          //     })
+          //   })
+          // })
+        }
+      } catch (err) {
+        return console.log(chalk.red(err, files))
       }
-    } catch (err) {
-      return console.log(chalk.red(err))
-    }
-  })
+    })
+  }
 }
 
 
 function isDirectory(path) {
   return new Promise(resolve => {
     fs.stat(path, (err, stats) => {
-      if(err) console.log(chalk.red(err))
+      if (err) console.log(chalk.red(err))
       resolve(stats.isDirectory() ? true : false)
     })
   })
@@ -55,18 +70,17 @@ function isDirectory(path) {
 function readDir(path) {
   return new Promise(resolve => {
     fs.readdir(path, (err, files) => {
-      if(err) console.log(chalk.red(err))
+      if (err) console.log(chalk.red(err))
       resolve(files)
     })
   })
 }
 
-function toBufferPromise(img) {
-  fs.readFile(img, (sourceData, err) => {
-    if(err) throw err
+function toBufferPromise(sourceData) {
+  return new Promise((reslove, reject) => {
     tinify.fromBuffer(sourceData).toBuffer((err, resultData) => {
-      if(err) throw err
-      return resultData
+      if (err) reject(err)
+      reslove(resultData)
     })
   })
 }
@@ -74,7 +88,7 @@ function toBufferPromise(img) {
 function writeFilePromise(file, content, cb) {
   return new Promise((resolve, reject) => {
     fs.writeFile(file, content, (err) => {
-      if(err) throw err
+      if (err) throw err
       cb && cb()
       resolve()
     })
