@@ -2,7 +2,25 @@
 [![NPM version](https://img.shields.io/npm/v/xd-cli.svg)](https://www.npmjs.com/package/xd-cli)
 [![npm download](https://img.shields.io/npm/dw/xd-cli.svg)](https://www.npmjs.com/package/xd-cli)
 
-## 预想实现功能
+## 项目模版是主要功能点
+- 移动端h5-vue☑️
+- 管理中后台admin-vue☑️
+- 管理中后台admin-angular6☑️
+- 官网pc-vue☑️
+- 服务端渲染SSR-Nuxt
+- 小程序-wepy☑️
+- 小程序-taro☑️
+- 跨端解决方案-RN☑️
+- 跨端解决方案-Flutter☑️
+- go后台模版
+- express后台模版☑️
+
+## 公用UI组件库
+- 针对移动端h5-vue
+- 针对管理中后台admin-vue
+- 针对小程序-wepy
+
+## 工具包
 - 拿本地IPv4`ip`
 - 静态起服务`server`(支持自定义端口号server 1234，默认7777)
   ![](http://pprzrrgk8.bkt.clouddn.com/WechatIMG11.png)
@@ -16,21 +34,3 @@
   ![](http://pprzrrgk8.bkt.clouddn.com/WechatIMG12.png)
 - 自动化爬虫
 - 图片自动上传七牛云返回cdn链接
-
-
-## 项目模版是主要功能点
-- 移动端h5-vue
-- 管理中后台admin-vue
-- 管理中后台admin-angular6☑️
-- 官网pc-vue
-- 小程序-wepy☑️
-- 小程序-taro
-- 跨端解决方案-RN
-- 跨端解决方案-Flutter
-- go后台模版
-- express后台模版
-
-## 公用UI组件库
-- 针对移动端h5-vue
-- 针对管理中后台admin-vue
-- 针对小程序-wepy
