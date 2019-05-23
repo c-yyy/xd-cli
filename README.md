@@ -6,6 +6,7 @@
 `npm i -g xd-cli`
 
 ## 项目模版是主要功能点
+- 终极跨端解决方案-uni☑️
 - 移动端h5-vue☑️
 - 管理中后台admin-vue☑️
 - 管理中后台admin-angular6☑️
