@@ -34,7 +34,7 @@
 ## 功能介绍
 - 拿本地IPv4`ip`
 - 静态起服务`server`(支持自定义端口号server 1234，默认7777)
-  ![](http://qgu2mvg2d.hn-bkt.clouddn.com/image/WechatIMG11.png)
+  ![server](http://qgu2mvg2d.hn-bkt.clouddn.com/image/WechatIMG11.png)
 - 压缩图片资源`rar`(速度较快，压缩效果不及tinify，且暂时不能传参)
   ![](http://qgu2mvg2d.hn-bkt.clouddn.com/image/WechatIMG16.png)
 - 压缩图片资源`tinify`(速度较慢，压缩效果好，受tinify_api限制(每月500张，对于一般项目而言应该是够了)
