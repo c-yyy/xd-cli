@@ -47,4 +47,4 @@
   ![](http://qgu2mvg2d.hn-bkt.clouddn.com/image/WechatIMG9.png)
 - 快速生成项目模版`xd ls`
 
-  ![](http://pprzrrgk8.bkt.clouddn.com/WechatIMG12.png)
+  ![](http://qgu2mvg2d.hn-bkt.clouddn.com/image/WechatIMG12.png)
