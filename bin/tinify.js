@@ -20,7 +20,7 @@ async function rarImages(rootPath) {
     const source = tinify.fromUrl(argv)
     source.toFile(argv.slice(-10))
     loading.stop()
-    console.log(chalk.green('🚀 Success!'))
+    console.log(chalk.green(' Success!'))
   } else {
     const files = await readDir(rootPath).then(res => { return res })
     files.map(async file => {
@@ -38,7 +38,7 @@ async function rarImages(rootPath) {
             const source = tinify.fromFile(fullPath)
             source.toFile(fullPath)
             loading.stop()
-            console.log(chalk.grey(fullPath)+chalk.green('🚀 Success!'))
+            console.log(chalk.grey(fullPath)+chalk.green(' Success!'))
     
             // 从缓冲区(buffer二进制字符串)上传图片并获取压缩后图片数据
             // fs.readFile(fullPath, (err, sourceData) => {
@@ -48,7 +48,7 @@ async function rarImages(rootPath) {
             //     fs.writeFile(fullPath, resultData, (err) => {
             //       if(err) console.log(chalk.red(err))
             //       loading.stop()
-            //       console.log(chalk.grey(fullPath)+chalk.green('🚀 Success!'))
+            //       console.log(chalk.grey(fullPath)+chalk.green(' Success!'))
             //     })
             //   })
             // })
